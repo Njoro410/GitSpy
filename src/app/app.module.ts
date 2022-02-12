@@ -7,7 +7,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { RepositoriesComponent } from './components/repositories/repositories.component';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,11 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NoopAnimationsModule
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatButtonModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

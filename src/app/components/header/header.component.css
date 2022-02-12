@@ -11,3 +11,25 @@
     font-weight: bolder;
     font-size: large;
 }
+.info {
+    text-align: center;
+}
+h3 {
+    font-weight: 900;
+    font-size: 3vw;
+    margin-top: 50px;
+}
+h4 {
+    font-weight: bold;
+}
+mat-form-field {
+    width: 70%;;
+    margin-left: 150px;
+}
+
+#form {
+    margin-top: 60px;
+}
+#find {
+    margin-left: 20px;
+}
