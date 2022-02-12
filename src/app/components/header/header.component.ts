@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
 
 @Component({
@@ -8,6 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class HeaderComponent implements OnInit {
+
+  username = new FormControl('',[Validators.required])
+
+  public getUser!: string;
+
+  findUser() {
+    alert(this.getUser)
+  }
 
   constructor() { }
 

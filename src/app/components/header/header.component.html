@@ -16,13 +16,16 @@
 <div class="container" id="form">
     <div class="row">
         <div class="col-sm-12">
-            <form class="form-inline">
+            <form class="form-inline" #findForm='ngForm' (submit)="findUser()">
                 <mat-form-field appearance="legacy">
                     <mat-label>User Name</mat-label>
-                    <input matInput placeholder="User Name" id="username">
-                    <mat-icon matSuffix>search</mat-icon>
+                    <input matInput [formControl]="username" placeholder="User Name" [(ngModel)]="getUser" id="name"   name="name" required >
+                    <mat-icon matSuffix>search</mat-icon> 
+                    <mat-error *ngIf="username.hasError('required')">
+                        Name is <strong>required</strong>
+                      </mat-error>
                     </mat-form-field>
-                    <button type="submit" mat-raised-button color="accent" id="find">Search</button>
+                    <button type="submit" [disabled]="!findForm.valid" mat-raised-button color="accent" routerLink="/userDetails" id="find">Search</button>
             </form>
         </div>
     </div>
