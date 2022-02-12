@@ -25,13 +25,13 @@
                         Name is <strong>required</strong>
                       </mat-error>
                     </mat-form-field>
-                    <button type="submit" [disabled]="!findForm.valid" mat-raised-button color="accent" routerLink="/userDetails" id="find">Search</button>
+                    <button type="submit" [disabled]="!findForm.valid" mat-raised-button color="accent" id="find">Search</button>
             </form>
         </div>
     </div>
 </div>
 
-
+<app-user-details [gitUser]="getUser"></app-user-details>
 
 
 
