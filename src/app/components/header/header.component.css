@@ -1,0 +1,10 @@
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+.navbar-text {
+    color: white;
+    font-weight: bolder;
+    font-size: large;
+}
