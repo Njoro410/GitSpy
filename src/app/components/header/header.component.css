@@ -3,8 +3,11 @@
     justify-content: center;
     justify-items: center;
 }
+.navbar {
+    background: transparent;
+}
 .navbar-text {
-    color: white;
+    color: #000;
     font-weight: bolder;
     font-size: large;
 }
