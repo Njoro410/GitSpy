@@ -29,7 +29,7 @@ export class UserDetailsComponent implements OnInit {
     //  this.gitUser.getRepos().subscribe(data => {
     //   this.reposi = data
     //  })
-    this.gitUser.getRepos()
+    this.gitUser.getRepos(this.sentUsername)
     this.reposi = this.gitUser.repos
     console.log("heeeelllo:"+this.reposi)
     

@@ -50,6 +50,7 @@ export class GetUserDetailsService {
     })
     return promise
   }
+            // method below is by using observable  instead of a promise
 
   // getRepos():Observable<Repo[]> {
 
@@ -59,13 +60,13 @@ export class GetUserDetailsService {
   // }
 
 
-  getRepos() {
+  getRepos(username:string) {
     interface Repo {
       msee: string;
     }
 
     let promise = new Promise<void>((resolve, reject) => {
-      let apiUrl = 'https://api.github.com/users/njoro410/repos?client_id=3e51fca811ef801de168&client_secret=5209739147ab1bd7ecd5c2d0ded144229b234d6b'
+      let apiUrl = 'https://api.github.com/users/'+username+'/repos?client_id=3e51fca811ef801de168&client_secret=5209739147ab1bd7ecd5c2d0ded144229b234d6b'
       this.http.get<Repo>(apiUrl)
         .toPromise()
         .then((res: any) => {
