@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl:"https://api.github.com/users/daneden?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"
+  apiUrl:"http://quotes.stormconsultancy.co.uk/random.json"
 };
 
 /*

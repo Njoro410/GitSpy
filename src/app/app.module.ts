@@ -4,9 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { UserDetailsComponent } from './components/user-details/user-details.component';
-import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { RepositoriesComponent } from './components/repositories/repositories.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
@@ -18,9 +15,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     HeaderComponent,
-    UserDetailsComponent,
-    UserProfileComponent,
-    RepositoriesComponent
   ],
   imports: [
     BrowserModule,
