@@ -3,3 +3,10 @@
 <p>works</p>
 {{user.login}}
 {{user.url}}
+
+
+
+<li *ngFor="let repo of reposi">
+    <ul>{{repo.name}}</ul>
+    <ul>{{repo.html_url}}</ul>
+</li>

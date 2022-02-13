@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/user';
 import { GetUserDetailsService } from 'src/app/get-user-details.service';
+import { Repo } from 'src/app/repo';
 
 @Component({
   selector: 'app-user-details',
@@ -11,6 +12,7 @@ import { GetUserDetailsService } from 'src/app/get-user-details.service';
 export class UserDetailsComponent implements OnInit {
 
   user!: User;
+  reposi!:Repo[];
 
   constructor(private route: ActivatedRoute, public gitUser: GetUserDetailsService) { }
     sentUsername:any;
@@ -22,9 +24,14 @@ export class UserDetailsComponent implements OnInit {
 
      this.gitUser.getUser()
      this.user = this.gitUser.results
+     this.gitUser.getRepos().subscribe(data => {
+       this.reposi = data
+     })
+     
     })
 
     console.log(this.user)
+    console.log(this.reposi)
     
   }
   
