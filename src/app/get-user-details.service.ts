@@ -34,8 +34,8 @@ export class GetUserDetailsService {
   
                 resolve();
               },error=>{
-                this.results.login = "Never, never, never give up"
-                this.results.url = "Winston Churchill"
+                this.results.login = "Oooops, an error occured"
+                this.results.url = "Oooops, an error occured"
        
                 reject(error)
               })
