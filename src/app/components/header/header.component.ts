@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { EventEmitter, Output } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,18 +10,19 @@ import { EventEmitter, Output } from '@angular/core';
 })
 
 export class HeaderComponent implements OnInit {
+  constructor(private route:Router) { }
 
   username = new FormControl('',[Validators.required])
 
-  public getUser!: any;
+  public name!: any;
  
 
   findUser() {
- 
-    alert(this.getUser)
+    this.route.navigate(['second-comp'],{queryParams:{data:this.name}})
+   
   }
 
-  constructor() { }
+  
 
   ngOnInit(): void {
   }
