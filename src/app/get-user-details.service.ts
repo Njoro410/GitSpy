@@ -12,24 +12,27 @@ import { Observable, observable } from 'rxjs';
 export class GetUserDetailsService {
   apiRoot: string = 'https://api.github.com/users/';
   results!: User;
-  repos!:Repo;
-  username: string = 'njoro410';
+  repos!: Repo[];
+  // data!:[];
+  // data!:[];
+  username!: string;
   clientid: string = '3e51fca811ef801de168';
   clientsecret: string = '5209739147ab1bd7ecd5c2d0ded144229b234d6b';
 
   constructor(private http: HttpClient) {
     this.results = new User("", "");
-    
+    this.repos = [];
+
   }
 
-  getUser() {
+  getUser(username: string) {
     interface ApiResponse {
       login: string;
       url: string;
     }
     let promise = new Promise<void>((resolve, reject) => {
       // let apiUrl = '${this.apiRoot}'+ this.username + '?client_id=' + this.clientid + '&client_secret=' + this.clientsecret;
-      let apiUrl = 'https://api.github.com/users/mdo?client_id=3e51fca811ef801de168&client_secret=5209739147ab1bd7ecd5c2d0ded144229b234d6b'
+      let apiUrl = 'https://api.github.com/users/' + username + '?client_id=3e51fca811ef801de168&client_secret=5209739147ab1bd7ecd5c2d0ded144229b234d6b'
       this.http.get<ApiResponse>(apiUrl)
         .toPromise()
         .then(
@@ -48,13 +51,43 @@ export class GetUserDetailsService {
     return promise
   }
 
+  // getRepos():Observable<Repo[]> {
+
+  //   let apiUrl = 'https://api.github.com/users/njoro410/repos?client_id=3e51fca811ef801de168&client_secret=5209739147ab1bd7ecd5c2d0ded144229b234d6b'
+  //       return this.http.get<Repo[]>
+  //       (apiUrl)
+  // }
 
 
-  getRepos():Observable<Repo[]> {
+  getRepos() {
+    interface Repo {
+      msee: string;
+    }
 
-    let apiUrl = 'https://api.github.com/users/njoro410/repos?client_id=3e51fca811ef801de168&client_secret=5209739147ab1bd7ecd5c2d0ded144229b234d6b'
-        return this.http.get<Repo[]>
-        (apiUrl)
+    let promise = new Promise<void>((resolve, reject) => {
+      let apiUrl = 'https://api.github.com/users/njoro410/repos?client_id=3e51fca811ef801de168&client_secret=5209739147ab1bd7ecd5c2d0ded144229b234d6b'
+      this.http.get<Repo>(apiUrl)
+        .toPromise()
+        .then((res: any) => {
+          this.repos = res.map((item: any) => {
+            return new Repo(
+              item.name,
+              item.html_url,
+              item.description
+            );
+          });
+          console.log(this.repos)
+          resolve();
+        },
+          err => {
+            reject(err)
+          })
+    })
+    // true
+    return promise;
+    // return this.repos;
+
   }
+
 }
 
