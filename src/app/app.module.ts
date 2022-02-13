@@ -12,6 +12,9 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserDetailsComponent } from './components/user-details/user-details.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientJsonpModule } from '@angular/common/http';
+import { GetUserDetailsService } from './get-user-details.service';
 
 
 @NgModule({
@@ -30,10 +33,12 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
     MatButtonModule,
     FormsModule,
     ReactiveFormsModule,
-    NoopAnimationsModule
+    NoopAnimationsModule,
+    HttpClientModule,
+    HttpClientJsonpModule
 
   ],
-  providers: [],
+  providers: [GetUserDetailsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
