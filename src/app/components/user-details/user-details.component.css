@@ -11,17 +11,14 @@
     font-weight: bolder;
     font-size: large;
 }
-.user-card {
-    max-width: 350px;
-    
+.example-card {
+    max-width: 400px;
   }
-.details-card {
-    max-width: 500px;
-}
+  
   .header-image {
     background-image: url('https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png');
     background-size: cover;
   }
-mat-flat-button {
-    margin-left: 50px;
+#view-repo {
+    float: right;
 }
