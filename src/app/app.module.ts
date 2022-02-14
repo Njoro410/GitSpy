@@ -19,6 +19,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { DatePipe } from './date.pipe';
+import { ZoomDirective } from './zoom.directive';
 
 
 
@@ -29,6 +30,7 @@ import { DatePipe } from './date.pipe';
     HeaderComponent,
     UserDetailsComponent,
     DatePipe,
+    ZoomDirective,
    
   ],
   imports: [

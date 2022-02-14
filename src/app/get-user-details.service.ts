@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { User } from './user';
 import { Repo } from './repo';
 import { Observable, observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -10,14 +11,13 @@ import { Observable, observable } from 'rxjs';
   providedIn: 'root'
 })
 export class GetUserDetailsService {
-  apiRoot: string = 'https://api.github.com/users/';
+  
   results!: User;
   repos!: Repo[];
   // data!:[];
   // data!:[];
   username!: string;
-  clientid: string = '3e51fca811ef801de168';
-  clientsecret: string = '5209739147ab1bd7ecd5c2d0ded144229b234d6b';
+
 
   constructor(private http: HttpClient) {
     this.results = new User("","","","","",0,0,0,0,"","","",new Date());
@@ -43,7 +43,7 @@ export class GetUserDetailsService {
     }
     let promise = new Promise<void>((resolve, reject) => {
       // let apiUrl = '${this.apiRoot}'+ this.username + '?client_id=' + this.clientid + '&client_secret=' + this.clientsecret;
-      let apiUrl = 'https://api.github.com/users/' + username + '?client_id=3e51fca811ef801de168&client_secret=5209739147ab1bd7ecd5c2d0ded144229b234d6b'
+      let apiUrl = environment.apiRoot + username + '?client_id='+environment.clientid+'&client_secret='+environment.clientsecret
       this.http.get<ApiResponse>(apiUrl)
         .toPromise()
         .then(
@@ -76,7 +76,7 @@ export class GetUserDetailsService {
 
   getRepos(username: string): Observable<Repo[]> {
 
-    let apiUrl = 'https://api.github.com/users/' + username + '/repos?client_id=3e51fca811ef801de168&client_secret=5209739147ab1bd7ecd5c2d0ded144229b234d6b'
+    let apiUrl = environment.apiRoot + username + '/repos?client_id='+environment.clientid+'&client_secret='+environment.clientsecret
     return this.http.get<Repo[]>
       (apiUrl)
   }

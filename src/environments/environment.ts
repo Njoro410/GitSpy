@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl:"http://quotes.stormconsultancy.co.uk/random.json"
+  apiRoot:'https://api.github.com/users/',
+  clientid: '3e51fca811ef801de168',
+  clientsecret:  '5209739147ab1bd7ecd5c2d0ded144229b234d6b'
 };
 
 /*
