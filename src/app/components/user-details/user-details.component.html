@@ -29,17 +29,17 @@
                 </div>
                 <div class="card-body text-dark">
                     <mat-list>
-                        <mat-list-item>User Name: {{user.login}}</mat-list-item>
+                        <mat-list-item><strong> Name: </strong> <span class="res">{{user.login}}</span></mat-list-item>
                         <mat-divider></mat-divider>
-                        <mat-list-item>Location: {{user.location}}</mat-list-item>
+                        <mat-list-item><strong>Location: </strong> <span class="res">{{user.location}}</span></mat-list-item>
                         <mat-divider></mat-divider>
-                        <mat-list-item>Email: {{user.email}}</mat-list-item>
+                        <mat-list-item><strong>Email: </strong> <span class="res">{{user.email}}</span></mat-list-item>
                         <mat-divider></mat-divider>
-                        <mat-list-item>Company: {{user.company}}</mat-list-item>
+                        <mat-list-item><strong>Company: </strong> <span class="res">{{user.company}}</span></mat-list-item>
                         <mat-divider></mat-divider>
-                        <mat-list-item>Blog: {{user.blog}}</mat-list-item>
+                        <mat-list-item><strong>Blog: </strong> <span class="res">{{user.blog}}</span></mat-list-item>
                         <mat-divider></mat-divider>
-                        <mat-list-item>Member Since: {{user.created_at | date}}</mat-list-item>
+                        <mat-list-item><strong>Member Since: </strong> <span class="res">{{user.created_at | date}}</span></mat-list-item>
                         <mat-divider></mat-divider>
                         <mat-list-item><a href="{{user.url}}" class="btn btn-outline-secondary" target="_blank">View on
                                 github</a></mat-list-item>
@@ -51,30 +51,30 @@
     <hr>
     <div class="row">
         <div class="col-md">
-            <h4>Repositories</h4>
+            <h4 class="repo">Repositories</h4>
         </div>
     </div>
     <hr>
     <div class="row">
-            <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div *ngFor="let repo of reposi" class="col-lg-4 d-flex align-items-stretch">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title center">{{repo.name}}</h5>
-                            <p class="card-text">{{repo.description}}</p>
-                            <span>Updated: {{repo.updated_at | time}}</span>
-                        </div>
-                        <div class="card-footer">
-                            <span class="badge bg-primary">{{repo.language}}</span>
-                            <span class="badge bg-secondary">{{repo.forks}} Forks</span>
-                            <span class="badge bg-success">{{repo.watchers_count}} Watch</span>
-                            <a href="{{repo.html_url}}" target="_blank" id="view-repo" class="btn">Go to Repo</a>
-                        </div>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div *ngFor="let repo of reposi" class="col-lg-4 d-flex align-items-stretch">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title center">{{repo.name}}</h5>
+                        <p class="card-text">{{repo.description}}</p>
+                        <span id="time">Updated: {{repo.updated_at | time}}</span>
+                    </div>
+                    <div class="card-footer">
+                        <span class="badge bg-primary">{{repo.language}}</span>
+                        <span class="badge bg-secondary">{{repo.forks}} Forks</span>
+                        <span class="badge bg-success">{{repo.watchers_count}} Watch</span>
+                        <a href="{{repo.html_url}}" target="_blank" id="view-repo" class="btn">Go to Repo</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 <!-- <div class="container">
     <mat-card class="example-card" *ngFor="let repo of reposi" >
         <mat-card-title>{{repo.name}}</mat-card-title>

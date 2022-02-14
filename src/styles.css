@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import url('https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap');
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: 'Cabin', sans-serif; }
 body {
     background-image: linear-gradient(to right top, #b2c6e5, #adc9ec, #a7cdf3, #a0d0f9, #97d4ff);
 }

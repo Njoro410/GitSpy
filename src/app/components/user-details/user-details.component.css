@@ -26,3 +26,16 @@
 #view-repo {
     float: right;
 }
+#time {
+    font-weight: 500;
+    color: darkslategrey;
+}
+.repo {
+    text-align: center;
+    font-weight: bold;
+}
+.res {
+    color: rgb(95, 12, 12);
+    font-weight: bolder;
+    font-size: 1.2vw;
+}
