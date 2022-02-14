@@ -24,6 +24,7 @@ import { ZoomDirective } from './zoom.directive';
 
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { ZoomDirective } from './zoom.directive';
     UserDetailsComponent,
     DatePipe,
     ZoomDirective,
+    
    
   ],
   imports: [
