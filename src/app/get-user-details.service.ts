@@ -17,6 +17,9 @@ export class GetUserDetailsService {
   // data!:[];
   // data!:[];
   username!: string;
+  apiRoot:string = 'https://api.github.com/users/'
+  clientid:string =  '3e51fca811ef801de168'
+  clientsecret:string =  '5209739147ab1bd7ecd5c2d0ded144229b234d6b'
 
 
   constructor(private http: HttpClient) {
@@ -43,7 +46,7 @@ export class GetUserDetailsService {
     }
     let promise = new Promise<void>((resolve, reject) => {
       // let apiUrl = '${this.apiRoot}'+ this.username + '?client_id=' + this.clientid + '&client_secret=' + this.clientsecret;
-      let apiUrl = environment.apiRoot + username + '?client_id='+environment.clientid+'&client_secret='+environment.clientsecret
+      let apiUrl = this.apiRoot + username + '?client_id='+this.clientid+'&client_secret='+this.clientsecret
       this.http.get<ApiResponse>(apiUrl)
         .toPromise()
         .then(
@@ -76,7 +79,7 @@ export class GetUserDetailsService {
 
   getRepos(username: string): Observable<Repo[]> {
 
-    let apiUrl = environment.apiRoot + username + '/repos?client_id='+environment.clientid+'&client_secret='+environment.clientsecret
+    let apiUrl = this.apiRoot + username + '/repos?client_id='+this.clientid+'&client_secret='+this.clientsecret
     return this.http.get<Repo[]>
       (apiUrl)
   }
