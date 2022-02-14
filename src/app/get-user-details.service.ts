@@ -20,15 +20,26 @@ export class GetUserDetailsService {
   clientsecret: string = '5209739147ab1bd7ecd5c2d0ded144229b234d6b';
 
   constructor(private http: HttpClient) {
-    this.results = new User("", "");
+    this.results = new User("","","","","",0,0,0,0,"","","",new Date());
     this.repos = [];
 
   }
 
   getUser(username: string) {
     interface ApiResponse {
-      login: string;
-      url: string;
+      name: string;
+      html_url: string;
+      avatar_url:string;
+      company:string;
+      bio:string;
+      public_repos:number;
+      followers:number;
+      following:number;
+      public_gists:number;
+      location:string;
+      email:string;
+      blog:string;
+      created_at:Date;
     }
     let promise = new Promise<void>((resolve, reject) => {
       // let apiUrl = '${this.apiRoot}'+ this.username + '?client_id=' + this.clientid + '&client_secret=' + this.clientsecret;
@@ -37,8 +48,19 @@ export class GetUserDetailsService {
         .toPromise()
         .then(
           (res) => {
-            this.results.login = res!.login
-            this.results.url = res!.url
+            this.results.login = res!.name
+            this.results.url = res!.html_url
+            this.results.avatar = res!.avatar_url
+            this.results.company = res!.company
+            this.results.bio = res!.bio
+            this.results.public_repos = res!.public_repos
+            this.results.followers = res!.followers
+            this.results.following = res!.following
+            this.results.gist = res!.public_gists
+            this.results.location = res!.location
+            this.results.email = res!.email
+            this.results.blog = res!.blog
+            this.results.created_at = res!.created_at
 
             resolve();
           }, error => {
@@ -50,45 +72,45 @@ export class GetUserDetailsService {
     })
     return promise
   }
-            // method below is by using observable  instead of a promise
-
-  // getRepos():Observable<Repo[]> {
-
-  //   let apiUrl = 'https://api.github.com/users/njoro410/repos?client_id=3e51fca811ef801de168&client_secret=5209739147ab1bd7ecd5c2d0ded144229b234d6b'
-  //       return this.http.get<Repo[]>
-  //       (apiUrl)
-  // }
 
 
-  getRepos(username:string) {
-    interface Repo {
-      msee: string;
-    }
+  getRepos(username: string): Observable<Repo[]> {
 
-    let promise = new Promise<void>((resolve, reject) => {
-      let apiUrl = 'https://api.github.com/users/'+username+'/repos?client_id=3e51fca811ef801de168&client_secret=5209739147ab1bd7ecd5c2d0ded144229b234d6b'
-      this.http.get<Repo>(apiUrl)
-        .toPromise()
-        .then((res: any) => {
-          this.repos = res.map((item: any) => {
-            return new Repo(
-              item.name,
-              item.html_url,
-              item.description
-            );
-          });
-          console.log(this.repos)
-          resolve();
-        },
-          err => {
-            reject(err)
-          })
-    })
-    // true
-    return promise;
-    // return this.repos;
-
+    let apiUrl = 'https://api.github.com/users/' + username + '/repos?client_id=3e51fca811ef801de168&client_secret=5209739147ab1bd7ecd5c2d0ded144229b234d6b'
+    return this.http.get<Repo[]>
+      (apiUrl)
   }
+
+
+  // getRepos(username:string) {
+  //   interface Repo {
+  //     msee: string;
+  //   }
+
+  //   let promise = new Promise<void>((resolve, reject) => {
+  //     let apiUrl = 'https://api.github.com/users/'+username+'/repos?client_id=3e51fca811ef801de168&client_secret=5209739147ab1bd7ecd5c2d0ded144229b234d6b'
+  //     this.http.get<Repo>(apiUrl)
+  //       .toPromise()
+  //       .then((res: any) => {
+  //         this.repos = res.map((item: any) => {
+  //           return new Repo(
+  //             item.name,
+  //             item.html_url,
+  //             item.description
+  //           );
+  //         });
+  //         console.log(this.repos)
+  //         resolve();
+  //       },
+  //         _err => {
+  //           reject('sorrrry')
+  //         })
+  //   })
+  //   // true
+  //   return promise;
+  //   // return this.repos;
+
+  // }
 
 }
 

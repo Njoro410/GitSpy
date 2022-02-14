@@ -13,35 +13,29 @@ import { Repo } from 'src/app/repo';
 export class UserDetailsComponent implements OnInit {
 
   user!: User;
-  reposi:Repo[]=[];
-  rep!:[];
+  reposi: Repo[] = [];
+  rep!: [];
 
   constructor(private route: ActivatedRoute, private gitUser: GetUserDetailsService) { }
-    sentUsername:any;
+  sentUsername: any;
+  name: any;
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((params:any)=>{
+    this.route.queryParams.subscribe((params: any) => {
       console.log(params)
       this.sentUsername = params.data;
+      this.name = params.data;
 
-     this.gitUser.getUser(this.sentUsername)
-     this.user = this.gitUser.results
-    //  this.gitUser.getRepos().subscribe(data => {
-    //   this.reposi = data
-    //  })
-    this.gitUser.getRepos(this.sentUsername)
-    this.reposi = this.gitUser.repos
-    console.log("heeeelllo:"+this.reposi)
-    
-     
+      this.gitUser.getUser(this.sentUsername)
+      this.user = this.gitUser.results
+
+      // this.gitUser.getRepos(this.name)
+      // this.reposi = this.gitUser.repos
+      this.gitUser.getRepos(this.name).subscribe(data => {
+        this.reposi = data
+      })
     })
-
+    console.log(this.reposi)
     console.log(this.user)
-    
-    
   }
-  
-  
- 
-
 }

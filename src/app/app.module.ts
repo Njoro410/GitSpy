@@ -15,6 +15,11 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientJsonpModule } from '@angular/common/http';
 import { GetUserDetailsService } from './get-user-details.service';
+import {MatCardModule} from '@angular/material/card';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+
+
 
 
 @NgModule({
@@ -35,7 +40,10 @@ import { GetUserDetailsService } from './get-user-details.service';
     ReactiveFormsModule,
     NoopAnimationsModule,
     HttpClientModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    MatCardModule,
+    MatDividerModule,
+    MatListModule
 
   ],
   providers: [GetUserDetailsService],

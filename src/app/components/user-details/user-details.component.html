@@ -1,14 +1,84 @@
+<nav class="navbar navbar-light">
+    <div class="container-fluid">
+        <span class="navbar-text">
+            GitSpy
+        </span>
+    </div>
+</nav>
+<div class="container mt-10">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card border-dark mb-3" style="width: 20rem;">
+                <img src="{{user.avatar}}" class="card-img-top" alt="github avatar">
+                <div class="card-body">
+                    <h5 class="card-title">{{user.login}}</h5>
+                    <p class="card-text">{{user.bio}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
 
-{{sentUsername}}
+            <!-- <mat-card class="details-card">
+                    <mat-card-header>
+                        <button mat-flat-button>{{user.public_repos}} Repos</button>
+                        <button mat-flat-button color="primary">{{user.followers}} Followers</button>
+                        <button mat-flat-button color="accent">{{user.following}} Following</button>
+                        <button mat-flat-button color="warn">{{user.gist}} Gists</button>
+                    </mat-card-header>
+ 
+                    <mat-card-content>
+                        <mat-list>
+                            <mat-list-item>User Name: {{user.login}}</mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item>Item 2</mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item>Item 3</mat-list-item>
+                          </mat-list>
+                    </mat-card-content>
+                  </mat-card> -->
+
+            <div class="card border-dark mb-3" style="max-width: 50rem;">
+                <div class="card-header">
+                    <button mat-flat-button>{{user.public_repos}} Repos</button>
+                    <button mat-flat-button color="primary">{{user.followers}} Followers</button>
+                    <button mat-flat-button color="accent">{{user.following}} Following</button>
+                    <button mat-flat-button color="warn">{{user.gist}} Gists</button>
+                </div>
+                <div class="card-body text-dark">
+                    <mat-list>
+                        <mat-list-item>User Name: {{user.login}}</mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item>Location: {{user.location}}</mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item>Email: {{user.email}}</mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item>Company: {{user.company}}</mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item>Blog: {{user.blog}}</mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item>Member Since: {{user.created_at}}</mat-list-item>
+                        <mat-divider></mat-divider>
+                        <mat-list-item><a href="{{user.url}}" class="btn btn-outline-secondary" target="_blank">View on github</a></mat-list-item>
+                        
+                    </mat-list>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+</div>
+<!-- {{sentUsername}}
 <p>works</p>
 {{user.login}}<br>
 {{user.url}}
 
-
+<p>repos should be down here</p>
 
 <li *ngFor="let repo of reposi">
-    <ul>.......{{repo.name}}</ul>
+    <ul>{{repo.name}}</ul>
     <ul>{{repo.html_url}}</ul>
     <ul>{{repo.description}}</ul>
 </li>
-
+ -->

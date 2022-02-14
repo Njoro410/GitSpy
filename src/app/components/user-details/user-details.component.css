@@ -1,0 +1,27 @@
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+.navbar {
+    background: transparent;
+}
+.navbar-text {
+    color: #000;
+    font-weight: bolder;
+    font-size: large;
+}
+.user-card {
+    max-width: 350px;
+    
+  }
+.details-card {
+    max-width: 500px;
+}
+  .header-image {
+    background-image: url('https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png');
+    background-size: cover;
+  }
+mat-flat-button {
+    margin-left: 50px;
+}
