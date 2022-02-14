@@ -18,6 +18,7 @@ import { GetUserDetailsService } from './get-user-details.service';
 import {MatCardModule} from '@angular/material/card';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
+import { DatePipe } from './date.pipe';
 
 
 
@@ -27,6 +28,7 @@ import {MatListModule} from '@angular/material/list';
     AppComponent,
     HeaderComponent,
     UserDetailsComponent,
+    DatePipe,
    
   ],
   imports: [
