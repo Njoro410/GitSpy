@@ -56,39 +56,25 @@
     </div>
     <hr>
     <div class="row">
-        <div class="col-md">
+       
             <div class="row row-cols-1 row-cols-md-3 g-4">
 
-                <div *ngFor="let repo of reposi" class="col">
-                  <div class="card">
-                    <div class="card-body">
-                      <h5 class="card-title center">{{repo.name}}</h5>
-                      <p class="card-text">{{repo.description}}</p>
-                      <span>Updated: {{repo.updated_at}}</span>
+                <div *ngFor="let repo of reposi" class="col-lg-4 d-flex align-items-stretch">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title center">{{repo.name}}</h5>
+                            <p class="card-text">{{repo.description}}</p>
+                            <span>Updated: {{repo.updated_at}}</span>
+                        </div>
+                        <div class="card-footer">
+                            <span class="badge bg-primary">{{repo.language}}</span>
+                            <span class="badge bg-secondary">{{repo.forks}} Forks</span>
+                            <span class="badge bg-success">{{repo.watchers_count}} Watch</span>
+                            <a href="{{repo.html_url}}" target="_blank" id="view-repo" class="btn">Go to Repo</a>
+                        </div>
                     </div>
-                    <div class="card-footer">
-                        <span class="badge bg-primary">{{repo.language}}</span>
-                        <span class="badge bg-secondary">{{repo.forks}} Forks</span>
-                        <span class="badge bg-success">{{repo.watchers_count}} Watch</span>
-                        <a href="{{repo.html_url}}" target="_blank" id="view-repo" class="btn">Go to Repo</a>
-                    </div>
-                  </div>
                 </div>
-                </div>
+            </div>
         </div>
     </div>
     <hr>
-</div>
-<!-- {{sentUsername}}
-<p>works</p>
-{{user.login}}<br>
-{{user.url}}
-
-<p>repos should be down here</p>
-
-<li *ngFor="let repo of reposi">
-    <ul>{{repo.name}}</ul>
-    <ul>{{repo.html_url}}</ul>
-    <ul>{{repo.description}}</ul>
-</li>
- -->
